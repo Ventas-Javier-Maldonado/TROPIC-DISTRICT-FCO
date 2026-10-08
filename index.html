@@ -1,1023 +1,1876 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Regalos & Detalles | Catálogo Digital</title>
+<meta name="theme-color" content="#071a2d">
+
+<link rel="manifest" href="./manifest.webmanifest">
+
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes">
+
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent">
+
+<meta
+  name="apple-mobile-web-app-title"
+  content="Tropic District">
+
+<title>Tropic District | Streetwear & Sneakers</title>
+
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-color:#292929;
-min-height:100vh;
-background:#f5f0ed;
-}
 
-/* FONDO */
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-linear-gradient(#211a1ad9,#211a1ad9),
-url("images/fondo-regalos.jpg") center/cover no-repeat fixed;
-z-index:-2;
-}
+  color:#17202a;
 
-body::after{
-content:"";
-position:fixed;
-inset:0;
-background:linear-gradient(
-135deg,
-#00000015,
-#ffffff08
-);
-z-index:-1;
-pointer-events:none;
+  min-height:100vh;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f7fa,
+      #ffffff
+    );
+
 }
 
 
-/* HEADER */
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+  --azul:#0878d1;
+  --azul-oscuro:#071a2d;
+
+  --amarillo:#ffd21c;
+
+  --rojo:#ef3340;
+
+  --verde:#12a86b;
+
+  --rosa:#ff4fa3;
+
+  --negro:#111111;
+
+  --blanco:#ffffff;
+
+  --gris:#68727d;
+
+  --gris-claro:#eef2f5;
+
+  --sombra:
+    0 12px 35px rgba(0,0,0,.12);
+
+  --radio:16px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
-background:#211a1af2;
-color:#fff;
-padding:28px 20px;
-border-bottom:1px solid #c89b78;
-position:sticky;
-top:0;
-z-index:500;
+
+  position:sticky;
+
+  top:0;
+
+  z-index:1000;
+
+  background:
+    rgba(7,26,45,.96);
+
+  color:white;
+
+  border-bottom:
+    4px solid var(--amarillo);
+
+  box-shadow:
+    0 5px 25px rgba(0,0,0,.22);
+
 }
 
 .header-contenido{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
+
+  max-width:1250px;
+
+  margin:auto;
+
+  padding:16px 20px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+}
+
+.marca{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+.logo-texto{
+
+  width:48px;
+
+  height:48px;
+
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--azul),
+      var(--verde)
+    );
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:20px;
+
+  font-weight:900;
+
+  color:white;
+
+  box-shadow:
+    4px 4px 0 var(--amarillo);
+
 }
 
 .marca h1{
-font-family:Georgia,serif;
-font-size:28px;
-letter-spacing:1px;
+
+  font-size:25px;
+
+  letter-spacing:1px;
+
+  font-weight:900;
+
 }
 
 .marca p{
-margin-top:5px;
-color:#d9c1b5;
-font-size:13px;
+
+  color:#d6e4ef;
+
+  font-size:12px;
+
+  margin-top:2px;
+
 }
 
 .btn-carrito{
-border:1px solid #d1a98b;
-background:#302625;
-color:#fff;
-padding:12px 18px;
-border-radius:25px;
-cursor:pointer;
-font-size:15px;
-font-weight:bold;
-transition:.3s;
+
+  border:0;
+
+  background:
+    var(--amarillo);
+
+  color:#111;
+
+  padding:11px 17px;
+
+  border-radius:25px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  font-weight:900;
+
+  transition:.25s;
+
 }
 
 .btn-carrito:hover{
-background:#a96f4d;
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,.25);
+
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-max-width:1200px;
-margin:30px auto 20px;
-padding:45px 25px;
-background:
-linear-gradient(#211a1ad9,#211a1ad9),
-url("images/hero-regalos.jpg") center/cover;
-border-radius:18px;
-color:#fff;
-border:1px solid #c89b78;
-box-shadow:0 10px 30px #0006;
+
+  max-width:1250px;
+
+  margin:25px auto;
+
+  padding:55px 30px;
+
+  border-radius:24px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  color:white;
+
+  background:
+
+    linear-gradient(
+      125deg,
+      #071a2d,
+      #0878d1,
+      #12a86b
+    );
+
+  box-shadow:
+    var(--sombra);
+
+}
+
+.hero::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:250px;
+
+  height:250px;
+
+  border-radius:50%;
+
+  background:
+    var(--amarillo);
+
+  right:-80px;
+
+  top:-100px;
+
+  opacity:.9;
+
+}
+
+.hero::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+
+  height:180px;
+
+  border-radius:50%;
+
+  background:
+    var(--rojo);
+
+  right:100px;
+
+  bottom:-100px;
+
+  opacity:.75;
+
+}
+
+.hero-contenido{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:800px;
+
 }
 
 .hero h2{
-font-family:Georgia,serif;
-font-size:35px;
-margin-bottom:10px;
+
+  font-size:
+    clamp(38px,7vw,72px);
+
+  line-height:.95;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+  letter-spacing:-2px;
+
+}
+
+.hero h2 span{
+
+  color:var(--amarillo);
+
 }
 
 .hero p{
-max-width:700px;
-color:#ddd;
-line-height:1.6;
+
+  margin-top:18px;
+
+  max-width:650px;
+
+  color:#edf7ff;
+
+  line-height:1.6;
+
+  font-size:16px;
+
+}
+
+.hero-frase{
+
+  display:inline-block;
+
+  margin-top:25px;
+
+  background:var(--rojo);
+
+  color:white;
+
+  padding:10px 17px;
+
+  border-radius:30px;
+
+  font-size:13px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+
 }
 
 
-/* CATEGORIAS */
+/* =========================================================
+   CATEGORIAS DINÁMICAS
+========================================================= */
 
 .categorias{
-max-width:1200px;
-margin:25px auto;
-padding:0 20px;
-display:flex;
-flex-wrap:wrap;
-gap:10px;
+
+  max-width:1250px;
+
+  margin:25px auto;
+
+  padding:0 20px;
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
 }
 
 .categoria-btn{
-background:#29201f;
-color:#fff;
-border:1px solid #bd9274;
-padding:10px 18px;
-border-radius:20px;
-cursor:pointer;
-transition:.3s;
+
+  border:2px solid var(--azul);
+
+  background:white;
+
+  color:var(--azul-oscuro);
+
+  padding:10px 17px;
+
+  border-radius:25px;
+
+  cursor:pointer;
+
+  font-weight:800;
+
+  transition:.25s;
+
 }
 
 .categoria-btn:hover,
 .categoria-btn.activa{
-background:#a96f4d;
+
+  background:var(--azul);
+
+  color:white;
+
+  transform:translateY(-2px);
+
 }
 
 
-/* CATALOGO */
+/* =========================================================
+   CATALOGO
+========================================================= */
 
 .catalogo{
-max-width:1200px;
-margin:auto;
-padding:10px 20px 60px;
+
+  max-width:1250px;
+
+  margin:auto;
+
+  padding:
+    10px 20px 70px;
+
 }
 
 .titulo-seccion{
-color:#fff;
-font-family:Georgia,serif;
-font-size:27px;
-margin:25px 0 18px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin:
+    35px 0 18px;
+
+  font-size:28px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+}
+
+.titulo-seccion::before{
+
+  content:"";
+
+  width:9px;
+
+  height:30px;
+
+  background:var(--amarillo);
+
+  border-radius:4px;
+
 }
 
 
-/* PRODUCTOS HORIZONTALES */
+/* =========================================================
+   GRID PRODUCTOS
+========================================================= */
 
 .productos{
-display:flex;
-flex-direction:column;
-gap:12px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(220px,1fr)
+    );
+
+  gap:18px;
+
 }
 
+
+/* =========================================================
+   TARJETA PRODUCTO
+========================================================= */
+
 .producto{
-display:flex;
-align-items:center;
-background:#ffffffee;
-border-radius:12px;
-overflow:hidden;
-min-height:120px;
-cursor:pointer;
-border:1px solid #ddd;
-box-shadow:0 5px 18px #0003;
-transition:.3s;
+
+  background:white;
+
+  border-radius:var(--radio);
+
+  overflow:hidden;
+
+  border:
+    1px solid #e1e6ea;
+
+  box-shadow:
+    0 7px 22px rgba(0,0,0,.09);
+
+  transition:.25s;
+
+  display:flex;
+
+  flex-direction:column;
+
 }
 
 .producto:hover{
-transform:translateX(4px);
-border-color:#c89b78;
-box-shadow:0 8px 24px #0005;
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.16);
+
 }
 
-.producto img{
-width:135px;
-height:120px;
-object-fit:cover;
-flex-shrink:0;
+.producto-foto{
+
+  width:100%;
+
+  height:240px;
+
+  object-fit:cover;
+
+  background:#eef2f5;
+
+  cursor:pointer;
+
 }
 
 .producto-info{
-padding:15px 18px;
-flex:1;
+
+  padding:17px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  flex:1;
+
+}
+
+.producto-marca{
+
+  font-size:11px;
+
+  font-weight:900;
+
+  color:var(--azul);
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+
+  margin-bottom:5px;
+
 }
 
 .producto-info h3{
-font-size:19px;
-margin-bottom:6px;
+
+  font-size:18px;
+
+  margin-bottom:7px;
+
 }
 
 .producto-info p{
-color:#666;
-font-size:13px;
-line-height:1.4;
+
+  color:var(--gris);
+
+  font-size:13px;
+
+  line-height:1.5;
+
+  flex:1;
+
 }
 
-.precios{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-margin-top:9px;
+.producto-precio{
+
+  font-size:21px;
+
+  font-weight:900;
+
+  margin:
+    14px 0;
+
 }
 
-.precio-mayoreo{
-color:#995f3e;
-font-weight:bold;
+.btn-ordenar{
+
+  width:100%;
+
+  border:0;
+
+  background:var(--azul);
+
+  color:white;
+
+  padding:12px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  font-weight:900;
+
+  transition:.25s;
+
 }
 
-.precio-menudeo{
-color:#333;
-font-weight:bold;
-}
+.btn-ordenar:hover{
 
-.producto-flecha{
-padding:20px;
-font-size:25px;
-color:#a96f4d;
+  background:var(--azul-oscuro);
+
 }
 
 
-/* MODAL PRODUCTO */
+/* =========================================================
+   ACCESORIOS
+========================================================= */
+
+.accesorios{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+
+}
+
+.accesorio{
+
+  display:flex;
+
+  align-items:center;
+
+  background:white;
+
+  border-radius:12px;
+
+  overflow:hidden;
+
+  border:
+    1px solid #e1e6ea;
+
+  box-shadow:
+    0 5px 16px rgba(0,0,0,.08);
+
+  min-height:105px;
+
+}
+
+.accesorio-foto{
+
+  width:110px;
+
+  height:105px;
+
+  object-fit:cover;
+
+  background:#fff1f8;
+
+  cursor:pointer;
+
+  flex-shrink:0;
+
+}
+
+.accesorio-info{
+
+  padding:
+    12px 16px;
+
+  flex:1;
+
+}
+
+.accesorio-tipo{
+
+  color:var(--rosa);
+
+  font-size:11px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+}
+
+.accesorio-info h3{
+
+  font-size:17px;
+
+  margin:
+    4px 0;
+
+}
+
+.accesorio-info p{
+
+  color:var(--gris);
+
+  font-size:12px;
+
+}
+
+.accesorio-precio{
+
+  padding:15px;
+
+  font-size:18px;
+
+  font-weight:900;
+
+  white-space:nowrap;
+
+}
+
+.accesorio-ordenar{
+
+  margin-right:15px;
+
+  border:0;
+
+  background:var(--rosa);
+
+  color:white;
+
+  padding:10px 13px;
+
+  border-radius:9px;
+
+  cursor:pointer;
+
+  font-weight:900;
+
+}
+
+
+/* =========================================================
+   MODAL PRODUCTO
+========================================================= */
 
 .modal{
-display:none;
-position:fixed;
-inset:0;
-background:#000b;
-z-index:2000;
-padding:20px;
-overflow:auto;
+
+  display:none;
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.82);
+
+  z-index:3000;
+
+  padding:20px;
+
+  overflow:auto;
+
 }
 
 .modal-producto{
-max-width:850px;
-margin:4% auto;
-background:#fff;
-border-radius:18px;
-overflow:hidden;
-position:relative;
-box-shadow:0 15px 50px #0008;
+
+  max-width:850px;
+
+  margin:
+    4% auto;
+
+  background:white;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
+
 }
 
 .cerrar{
-position:absolute;
-right:15px;
-top:10px;
-font-size:32px;
-color:#fff;
-z-index:5;
-cursor:pointer;
-background:#0008;
-width:42px;
-height:42px;
-border-radius:50%;
-text-align:center;
-line-height:38px;
+
+  position:absolute;
+
+  right:15px;
+
+  top:12px;
+
+  width:42px;
+
+  height:42px;
+
+  border-radius:50%;
+
+  background:
+    rgba(0,0,0,.75);
+
+  color:white;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  z-index:5;
+
 }
 
 .detalle{
-display:grid;
-grid-template-columns:1fr 1fr;
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
 }
 
 .detalle img{
-width:100%;
-height:430px;
-object-fit:cover;
+
+  width:100%;
+
+  height:450px;
+
+  object-fit:cover;
+
 }
 
 .detalle-info{
-padding:30px;
+
+  padding:30px;
+
 }
 
 .detalle-info h2{
-font-family:Georgia,serif;
-font-size:28px;
-margin-bottom:12px;
+
+  font-size:30px;
+
+  margin-bottom:10px;
+
+}
+
+.detalle-marca{
+
+  color:var(--azul);
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+  margin-bottom:18px;
+
 }
 
 .detalle-descripcion{
-color:#666;
-line-height:1.6;
-margin-bottom:20px;
+
+  color:#606b75;
+
+  line-height:1.6;
+
+  margin-bottom:20px;
+
 }
 
-.precio-box{
-background:#f6f0ed;
-padding:15px;
-border-radius:10px;
-margin-bottom:20px;
-}
+.detalle-precio{
 
-.precio-box div{
-margin:7px 0;
-}
+  font-size:28px;
 
-.precio-box strong{
-color:#995f3e;
-}
+  font-weight:900;
 
-.cantidad{
-display:flex;
-align-items:center;
-gap:10px;
-margin:20px 0;
-}
+  margin-bottom:20px;
 
-.cantidad button{
-width:35px;
-height:35px;
-border:0;
-border-radius:50%;
-background:#29201f;
-color:#fff;
-cursor:pointer;
-font-size:18px;
-}
-
-.cantidad span{
-min-width:35px;
-text-align:center;
-font-weight:bold;
 }
 
 .agregar{
-width:100%;
-border:0;
-padding:14px;
-background:#a96f4d;
-color:#fff;
-border-radius:8px;
-cursor:pointer;
-font-size:16px;
-font-weight:bold;
+
+  width:100%;
+
+  border:0;
+
+  background:var(--azul);
+
+  color:white;
+
+  padding:15px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-size:16px;
+
+  font-weight:900;
+
 }
 
-.agregar:hover{
-background:#814e37;
-}
 
-
-/* CARRITO */
+/* =========================================================
+   CARRITO
+========================================================= */
 
 .carrito{
-position:fixed;
-right:-430px;
-top:0;
-width:400px;
-max-width:92%;
-height:100vh;
-background:#fff;
-z-index:3000;
-box-shadow:-10px 0 35px #0006;
-transition:.35s;
-display:flex;
-flex-direction:column;
+
+  position:fixed;
+
+  right:-430px;
+
+  top:0;
+
+  width:400px;
+
+  max-width:92%;
+
+  height:100vh;
+
+  background:white;
+
+  z-index:4000;
+
+  box-shadow:
+    -10px 0 35px rgba(0,0,0,.3);
+
+  transition:.35s;
+
+  display:flex;
+
+  flex-direction:column;
+
 }
 
 .carrito.abierto{
-right:0;
+
+  right:0;
+
 }
 
 .carrito-header{
-background:#211a1a;
-color:#fff;
-padding:22px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+
+  background:
+    var(--azul-oscuro);
+
+  color:white;
+
+  padding:20px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
 }
 
 .carrito-header h2{
-font-family:Georgia,serif;
+
+  font-size:22px;
+
 }
 
 .cerrar-carrito{
-font-size:27px;
-cursor:pointer;
+
+  font-size:28px;
+
+  cursor:pointer;
+
 }
 
 .carrito-items{
-flex:1;
-overflow:auto;
-padding:15px;
+
+  flex:1;
+
+  overflow:auto;
+
+  padding:15px;
+
 }
 
 .carrito-item{
-border-bottom:1px solid #ddd;
-padding:14px 0;
+
+  padding:
+    14px 0;
+
+  border-bottom:
+    1px solid #ddd;
+
 }
 
 .carrito-item h4{
-margin-bottom:6px;
+
+  margin-bottom:6px;
+
 }
 
 .carrito-item small{
-color:#777;
+
+  color:#777;
+
 }
 
 .item-controles{
-display:flex;
-align-items:center;
-gap:8px;
-margin-top:9px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-top:9px;
+
 }
 
 .item-controles button{
-border:0;
-background:#29201f;
-color:#fff;
-width:28px;
-height:28px;
-border-radius:50%;
-cursor:pointer;
+
+  border:0;
+
+  background:
+    var(--azul-oscuro);
+
+  color:white;
+
+  width:28px;
+
+  height:28px;
+
+  border-radius:50%;
+
+  cursor:pointer;
+
 }
 
-.eliminar{
-margin-left:auto;
-background:#a33!important;
+.item-controles .eliminar{
+
+  margin-left:auto;
+
+  background:var(--rojo);
+
 }
 
 .carrito-footer{
-padding:20px;
-border-top:1px solid #ddd;
+
+  padding:20px;
+
+  border-top:
+    1px solid #ddd;
+
 }
 
 .total{
-display:flex;
-justify-content:space-between;
-font-size:21px;
-font-weight:bold;
-margin-bottom:15px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  font-size:21px;
+
+  font-weight:900;
+
+  margin-bottom:15px;
+
 }
 
 .btn-revisar{
-width:100%;
-padding:14px;
-background:#25d366;
-color:#fff;
-border:0;
-border-radius:8px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+
+  width:100%;
+
+  padding:14px;
+
+  border:0;
+
+  border-radius:10px;
+
+  background:
+    var(--verde);
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
 }
 
 
-/* CHECKOUT */
+/* =========================================================
+   CHECKOUT
+========================================================= */
 
 .checkout{
-display:none;
-position:fixed;
-inset:0;
-background:#000b;
-z-index:4000;
-padding:20px;
-overflow:auto;
+
+  display:none;
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.8);
+
+  z-index:5000;
+
+  padding:20px;
+
+  overflow:auto;
+
 }
 
 .checkout-box{
-max-width:600px;
-margin:4% auto;
-background:#fff;
-border-radius:18px;
-padding:28px;
+
+  max-width:600px;
+
+  margin:4% auto;
+
+  background:white;
+
+  border-radius:20px;
+
+  padding:28px;
+
 }
 
 .checkout-box h2{
-font-family:Georgia,serif;
-margin-bottom:20px;
+
+  font-size:27px;
+
+  margin-bottom:20px;
+
 }
 
 .resumen{
-background:#f5f0ed;
-padding:15px;
-border-radius:10px;
-margin-bottom:20px;
+
+  background:#f3f6f8;
+
+  padding:15px;
+
+  border-radius:10px;
+
+  margin-bottom:20px;
+
 }
 
 .resumen-linea{
-display:flex;
-justify-content:space-between;
-padding:7px 0;
-border-bottom:1px solid #ddd;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  padding:8px 0;
+
+  border-bottom:
+    1px solid #ddd;
+
 }
 
 .formulario label{
-display:block;
-margin-top:13px;
-font-weight:bold;
+
+  display:block;
+
+  margin-top:13px;
+
+  font-weight:bold;
+
 }
 
 .formulario input,
 .formulario textarea{
-width:100%;
-padding:12px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:8px;
-font-family:Arial;
+
+  width:100%;
+
+  padding:12px;
+
+  margin-top:5px;
+
+  border:
+    1px solid #ccd3d9;
+
+  border-radius:8px;
+
+  font-family:Arial;
+
 }
 
 .formulario textarea{
-min-height:90px;
-resize:vertical;
+
+  min-height:90px;
+
+  resize:vertical;
+
 }
 
 .btn-enviar{
-width:100%;
-margin-top:20px;
-padding:15px;
-background:#25d366;
-border:0;
-color:#fff;
-border-radius:8px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+
+  width:100%;
+
+  margin-top:20px;
+
+  padding:15px;
+
+  background:
+    var(--verde);
+
+  border:0;
+
+  color:white;
+
+  border-radius:9px;
+
+  font-size:16px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
 }
 
 .btn-cerrar-checkout{
-width:100%;
-margin-top:10px;
-padding:12px;
-background:#29201f;
-color:#fff;
-border:0;
-border-radius:8px;
-cursor:pointer;
+
+  width:100%;
+
+  margin-top:10px;
+
+  padding:12px;
+
+  background:
+    var(--azul-oscuro);
+
+  color:white;
+
+  border:0;
+
+  border-radius:9px;
+
+  cursor:pointer;
+
 }
 
 
-/* MÚSICA */
+/* =========================================================
+   ESTADO VACÍO
+========================================================= */
 
-.boton-musica{
-position:fixed;
-left:18px;
-bottom:18px;
-z-index:5000;
-background:#29201f;
-color:#fff;
-border:1px solid #d1a98b;
-border-radius:30px;
-padding:11px 17px;
-cursor:pointer;
-font-weight:bold;
-box-shadow:0 5px 18px #0005;
+.vacio{
+
+  text-align:center;
+
+  padding:55px 20px;
+
+  background:white;
+
+  border-radius:18px;
+
+  border:
+    1px solid #e2e6e9;
+
+  color:#68727d;
+
 }
 
-.boton-musica.activo{
-background:#a96f4d;
+.vacio h3{
+
+  color:var(--azul-oscuro);
+
+  margin-bottom:8px;
+
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-background:#211a1af5;
-color:#fff;
-text-align:center;
-padding:35px 20px;
-border-top:1px solid #bd9274;
+
+  background:
+    var(--azul-oscuro);
+
+  color:white;
+
+  text-align:center;
+
+  padding:40px 20px;
+
+  border-top:
+    5px solid var(--amarillo);
+
 }
 
 footer h3{
-font-family:Georgia,serif;
-margin-bottom:8px;
+
+  font-size:24px;
+
+  margin-bottom:8px;
+
 }
 
 footer p{
-color:#bbb;
-font-size:13px;
-margin:5px;
+
+  color:#bdccd8;
+
+  font-size:13px;
+
+  margin:5px;
+
 }
 
 
-/* RESPONSIVE */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:700px){
 
-.header-contenido{
-flex-direction:column;
-text-align:center;
-}
+  .header-contenido{
 
-.producto img{
-width:105px;
-height:105px;
-}
+    padding:13px 15px;
 
-.producto-info{
-padding:12px;
-}
+  }
 
-.producto-info h3{
-font-size:16px;
-}
+  .marca h1{
 
-.producto-flecha{
-display:none;
-}
+    font-size:20px;
 
-.detalle{
-grid-template-columns:1fr;
-}
+  }
 
-.detalle img{
-height:300px;
-}
+  .marca p{
 
-.detalle-info{
-padding:22px;
-}
+    font-size:10px;
 
-.carrito{
-width:100%;
-max-width:100%;
-}
+  }
 
-.hero h2{
-font-size:28px;
-}
+  .logo-texto{
+
+    width:40px;
+
+    height:40px;
+
+    font-size:16px;
+
+  }
+
+  .hero{
+
+    margin:
+      15px;
+
+    padding:
+      42px 22px;
+
+  }
+
+  .hero h2{
+
+    font-size:43px;
+
+  }
+
+  .categorias{
+
+    padding:
+      0 15px;
+
+  }
+
+  .catalogo{
+
+    padding:
+      5px 15px 50px;
+
+  }
+
+  .productos{
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap:10px;
+
+  }
+
+  .producto-foto{
+
+    height:180px;
+
+  }
+
+  .producto-info{
+
+    padding:12px;
+
+  }
+
+  .producto-info h3{
+
+    font-size:15px;
+
+  }
+
+  .producto-info p{
+
+    font-size:11px;
+
+  }
+
+  .producto-precio{
+
+    font-size:17px;
+
+  }
+
+  .btn-ordenar{
+
+    padding:10px 5px;
+
+    font-size:12px;
+
+  }
+
+  .accesorio-foto{
+
+    width:85px;
+
+    height:90px;
+
+  }
+
+  .accesorio-info{
+
+    padding:
+      10px;
+
+  }
+
+  .accesorio-info h3{
+
+    font-size:14px;
+
+  }
+
+  .accesorio-precio{
+
+    padding:8px;
+
+    font-size:15px;
+
+  }
+
+  .accesorio-ordenar{
+
+    margin-right:8px;
+
+    padding:8px;
+
+    font-size:11px;
+
+  }
+
+  .detalle{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .detalle img{
+
+    height:330px;
+
+  }
+
+  .detalle-info{
+
+    padding:22px;
+
+  }
+
+  .carrito{
+
+    width:100%;
+
+    max-width:100%;
+
+  }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
-<div class="header-contenido">
+  <div class="header-contenido">
 
-<div class="marca">
+    <div class="marca">
 
-<h1>REGALOS & DETALLES</h1>
+      <div class="logo-texto">
+        TD
+      </div>
 
-<p>
-Detalles que hacen especial cada momento
-</p>
+      <div>
 
-</div>
+        <h1>
+          TROPIC DISTRICT
+        </h1>
 
-<button
-class="btn-carrito"
-onclick="abrirCarrito()">
+        <p>
+          STREETWEAR • SNEAKERS • STYLE
+        </p>
 
-🛒 Carrito
-<span id="contador">0</span>
+      </div>
 
-</button>
+    </div>
 
-</div>
+
+    <button
+      class="btn-carrito"
+      onclick="abrirCarrito()">
+
+      🛒 Carrito
+
+      <span id="contador">
+        0
+      </span>
+
+    </button>
+
+  </div>
 
 </header>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-<h2>
-Regalos para cada ocasión
-</h2>
+  <div class="hero-contenido">
 
-<p>
+    <h2>
+      STREET<br>
+      <span>MEETS</span><br>
+      TROPICAL
+    </h2>
 
-Tazas, globos con helio, detalles personalizados,
-decoración, regalos para cumpleaños,
-aniversarios, celebraciones y mucho más.
+    <p>
 
-Compra por mayoreo o menudeo.
+      Sneakers, streetwear y accesorios
+      para moverte con tu propio estilo.
 
-</p>
+      Una mezcla de ciudad, color,
+      playa y actitud.
+
+    </p>
+
+    <span class="hero-frase">
+      MOVE YOUR WAY
+    </span>
+
+  </div>
 
 </section>
 
 
-<!-- CATEGORIAS -->
+<!-- =====================================================
+     CATEGORIAS
+===================================================== -->
 
-<div class="categorias">
-
-<button
-class="categoria-btn activa"
-onclick="filtrar('Todos',this)">
-Todos
-</button>
-
-<button
-class="categoria-btn"
-onclick="filtrar('Tazas',this)">
-Tazas
-</button>
-
-<button
-class="categoria-btn"
-onclick="filtrar('Globos',this)">
-Globos
-</button>
-
-<button
-class="categoria-btn"
-onclick="filtrar('Regalos',this)">
-Regalos
-</button>
-
-<button
-class="categoria-btn"
-onclick="filtrar('Decoración',this)">
-Decoración
-</button>
-
-<button
-class="categoria-btn"
-onclick="filtrar('Personalizados',this)">
-Personalizados
-</button>
+<div
+  class="categorias"
+  id="categorias">
 
 </div>
 
 
-<!-- CATALOGO -->
+<!-- =====================================================
+     CATALOGO
+===================================================== -->
 
 <main class="catalogo">
 
-<h2 class="titulo-seccion">
-Catálogo de productos
-</h2>
+  <h2 class="titulo-seccion">
+    Catálogo
+  </h2>
 
-<div
-class="productos"
-id="productos">
-</div>
+
+  <div
+    id="productos">
+
+  </div>
 
 </main>
 
 
-<!-- MODAL PRODUCTO -->
+<!-- =====================================================
+     MODAL PRODUCTO
+===================================================== -->
 
 <div
-class="modal"
-id="modalProducto">
+  class="modal"
+  id="modalProducto">
 
-<div class="modal-producto">
+  <div class="modal-producto">
 
-<span
-class="cerrar"
-onclick="cerrarProducto()">
+    <span
+      class="cerrar"
+      onclick="cerrarProducto()">
 
-&times;
+      &times;
 
-</span>
+    </span>
 
-<div class="detalle">
 
-<img
-id="detalleImagen"
-src=""
-alt="Producto">
+    <div class="detalle">
 
-<div class="detalle-info">
+      <img
+        id="detalleImagen"
+        src=""
+        alt="Producto">
 
-<h2 id="detalleNombre"></h2>
 
-<p
-class="detalle-descripcion"
-id="detalleDescripcion">
-</p>
+      <div class="detalle-info">
 
-<div class="precio-box">
+        <div
+          class="detalle-marca"
+          id="detalleMarca">
+        </div>
 
-<div>
-Precio menudeo:
-<strong id="detalleMenudeo"></strong>
-</div>
 
-<div>
-Precio mayoreo:
-<strong id="detalleMayoreo"></strong>
-</div>
+        <h2
+          id="detalleNombre">
+        </h2>
 
-</div>
 
-<div class="cantidad">
+        <p
+          class="detalle-descripcion"
+          id="detalleDescripcion">
+        </p>
 
-<button onclick="cambiarCantidad(-1)">
-−
-</button>
 
-<span id="cantidadDetalle">
-1
-</span>
+        <div
+          class="detalle-precio"
+          id="detallePrecio">
+        </div>
 
-<button onclick="cambiarCantidad(1)">
-+
-</button>
 
-</div>
+        <button
+          class="agregar"
+          onclick="agregarDesdeDetalle()">
 
-<button
-class="agregar"
-onclick="agregarDesdeDetalle()">
+          🛒 AGREGAR AL CARRITO
 
-🛒 AGREGAR AL CARRITO
+        </button>
 
-</button>
+      </div>
 
-</div>
+    </div>
 
-</div>
-
-</div>
+  </div>
 
 </div>
 
 
-<!-- CARRITO -->
+<!-- =====================================================
+     CARRITO
+===================================================== -->
 
 <aside
-class="carrito"
-id="carrito">
+  class="carrito"
+  id="carrito">
 
-<div class="carrito-header">
+  <div class="carrito-header">
 
-<h2>
-Mi pedido
-</h2>
+    <h2>
+      Mi pedido
+    </h2>
 
-<span
-class="cerrar-carrito"
-onclick="cerrarCarrito()">
+    <span
+      class="cerrar-carrito"
+      onclick="cerrarCarrito()">
 
-&times;
+      &times;
 
-</span>
+    </span>
 
-</div>
-
-
-<div
-class="carrito-items"
-id="carritoItems">
-
-<p style="text-align:center;color:#777;padding:30px">
-
-Tu carrito está vacío.
-
-</p>
-
-</div>
+  </div>
 
 
-<div class="carrito-footer">
+  <div
+    class="carrito-items"
+    id="carritoItems">
 
-<div class="total">
+    <p
+      style="
+      text-align:center;
+      color:#777;
+      padding:30px">
 
-<span>Total:</span>
+      Tu carrito está vacío.
 
-<span id="total">
-$0 MXN
-</span>
+    </p>
 
-</div>
+  </div>
 
-<button
-class="btn-revisar"
-onclick="abrirCheckout()">
 
-REVISAR PEDIDO
+  <div class="carrito-footer">
 
-</button>
+    <div class="total">
 
-</div>
+      <span>
+        Total:
+      </span>
+
+      <span id="total">
+        $0 MXN
+      </span>
+
+    </div>
+
+
+    <button
+      class="btn-revisar"
+      onclick="abrirCheckout()">
+
+      REVISAR PEDIDO
+
+    </button>
+
+  </div>
 
 </aside>
 
 
-<!-- CHECKOUT -->
+<!-- =====================================================
+     CHECKOUT
+===================================================== -->
 
 <div
-class="checkout"
-id="checkout">
+  class="checkout"
+  id="checkout">
 
-<div class="checkout-box">
+  <div class="checkout-box">
 
-<h2>
-Revisar pedido
-</h2>
+    <h2>
+      Revisar pedido
+    </h2>
 
-<div
-class="resumen"
-id="resumen">
+
+    <div
+      class="resumen"
+      id="resumen">
+
+    </div>
+
+
+    <form
+      class="formulario"
+      onsubmit="enviarPedido(event)">
+
+
+      <label>
+        Nombre
+      </label>
+
+      <input
+        type="text"
+        id="cliente"
+        required
+        placeholder="Tu nombre">
+
+
+      <label>
+        Teléfono
+      </label>
+
+      <input
+        type="tel"
+        id="telefono"
+        required
+        placeholder="Tu teléfono">
+
+
+      <label>
+        Observaciones
+      </label>
+
+      <textarea
+        id="observaciones"
+        placeholder="Alguna indicación para tu pedido...">
+      </textarea>
+
+
+      <button
+        class="btn-enviar"
+        type="submit">
+
+        📲 ENVIAR PEDIDO POR WHATSAPP
+
+      </button>
+
+    </form>
+
+
+    <button
+      class="btn-cerrar-checkout"
+      onclick="cerrarCheckout()">
+
+      Regresar al catálogo
+
+    </button>
+
+  </div>
+
 </div>
 
-<form
-class="formulario"
-onsubmit="enviarPedido(event)">
 
-<label>
-Nombre
-</label>
-
-<input
-type="text"
-id="cliente"
-required
-placeholder="Tu nombre">
-
-<label>
-Teléfono
-</label>
-
-<input
-type="tel"
-id="telefono"
-required
-placeholder="Tu teléfono">
-
-<label>
-Observaciones
-</label>
-
-<textarea
-id="observaciones"
-placeholder="Alguna indicación para tu pedido...">
-</textarea>
-
-
-<button
-class="btn-enviar"
-type="submit">
-
-📲 ENVIAR PEDIDO POR WHATSAPP
-
-</button>
-
-</form>
-
-<button
-class="btn-cerrar-checkout"
-onclick="cerrarCheckout()">
-
-Regresar al catálogo
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- MÚSICA -->
-
-<audio
-id="musica"
-loop
-preload="auto">
-
-<source
-src="audio/musica-regalos.mp3"
-type="audio/mpeg">
-
-</audio>
-
-
-<button
-class="boton-musica"
-id="botonMusica"
-onclick="controlarMusica()">
-
-♫ Música
-
-</button>
-
-
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-<h3>
-REGALOS & DETALLES
-</h3>
+  <h3>
+    TROPIC DISTRICT
+  </h3>
 
-<p>
-Detalles para cada ocasión.
-</p>
+  <p>
+    STREETWEAR • SNEAKERS • STYLE
+  </p>
 
-<p>
-Mayoreo • Menudeo • Pedidos por WhatsApp
-</p>
+  <p>
+    Pedidos por WhatsApp
+  </p>
 
 </footer>
 
@@ -1025,854 +1878,1319 @@ Mayoreo • Menudeo • Pedidos por WhatsApp
 <script>
 
 
-/* =========================================
-   PRODUCTOS
-   PREPARADOS PARA CRECER HASTA 50+
-========================================= */
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
 
-const productos=[
-
-{
-id:1,
-categoria:"Tazas",
-nombre:"Taza Personalizada",
-descripcion:"Taza personalizada para cumpleaños, aniversarios y ocasiones especiales.",
-menudeo:120,
-mayoreo:85,
-imagen:"taza-personalizada.jpg"
-},
-
-{
-id:2,
-categoria:"Tazas",
-nombre:"Taza Mágica",
-descripcion:"Taza que revela el diseño al agregar una bebida caliente.",
-menudeo:180,
-mayoreo:135,
-imagen:"taza-magica.jpg"
-},
-
-{
-id:3,
-categoria:"Tazas",
-nombre:"Taza con Diseño Floral",
-descripcion:"Taza decorativa ideal para regalo.",
-menudeo:150,
-mayoreo:110,
-imagen:"taza-floral.jpg"
-},
-
-{
-id:4,
-categoria:"Globos",
-nombre:"Globo de Helio Número",
-descripcion:"Globo metálico con número para cumpleaños y celebraciones.",
-menudeo:180,
-mayoreo:135,
-imagen:"globo-numero.jpg"
-},
-
-{
-id:5,
-categoria:"Globos",
-nombre:"Globo de Helio Corazón",
-descripcion:"Globo metálico en forma de corazón para regalar.",
-menudeo:160,
-mayoreo:120,
-imagen:"globo-corazon.jpg"
-},
-
-{
-id:6,
-categoria:"Globos",
-nombre:"Bouquet de Globos",
-descripcion:"Arreglo de globos para cumpleaños y eventos especiales.",
-menudeo:450,
-mayoreo:350,
-imagen:"bouquet-globos.jpg"
-},
-
-{
-id:7,
-categoria:"Regalos",
-nombre:"Caja de Regalo",
-descripcion:"Caja decorativa lista para preparar un detalle especial.",
-menudeo:250,
-mayoreo:190,
-imagen:"caja-regalo.jpg"
-},
-
-{
-id:8,
-categoria:"Regalos",
-nombre:"Peluche Decorativo",
-descripcion:"Peluche suave ideal para cumpleaños y fechas especiales.",
-menudeo:350,
-mayoreo:270,
-imagen:"peluche.jpg"
-},
-
-{
-id:9,
-categoria:"Regalos",
-nombre:"Set de Regalo",
-descripcion:"Conjunto de productos seleccionado para una ocasión especial.",
-menudeo:480,
-mayoreo:370,
-imagen:"set-regalo.jpg"
-},
-
-{
-id:10,
-categoria:"Regalos",
-nombre:"Vela Aromática",
-descripcion:"Vela decorativa con agradable aroma.",
-menudeo:180,
-mayoreo:130,
-imagen:"vela.jpg"
-},
-
-{
-id:11,
-categoria:"Decoración",
-nombre:"Cortina Metálica",
-descripcion:"Decoración para fiestas y celebraciones.",
-menudeo:120,
-mayoreo:85,
-imagen:"cortina.jpg"
-},
-
-{
-id:12,
-categoria:"Decoración",
-nombre:"Guirnalda Decorativa",
-descripcion:"Guirnalda para decoración de fiestas.",
-menudeo:160,
-mayoreo:115,
-imagen:"guirnalda.jpg"
-},
-
-{
-id:13,
-categoria:"Decoración",
-nombre:"Kit para Cumpleaños",
-descripcion:"Kit decorativo para fiesta de cumpleaños.",
-menudeo:280,
-mayoreo:220,
-imagen:"kit-cumpleanos.jpg"
-},
-
-{
-id:14,
-categoria:"Personalizados",
-nombre:"Playera Personalizada",
-descripcion:"Playera personalizada con diseño elegido por el cliente.",
-menudeo:280,
-mayoreo:220,
-imagen:"playera.jpg"
-},
-
-{
-id:15,
-categoria:"Personalizados",
-nombre:"Termo Personalizado",
-descripcion:"Termo personalizado para regalo o uso personal.",
-menudeo:350,
-mayoreo:280,
-imagen:"termo.jpg"
-},
-
-{
-id:16,
-categoria:"Personalizados",
-nombre:"Llavero Personalizado",
-descripcion:"Llavero personalizado para regalo.",
-menudeo:100,
-mayoreo:70,
-imagen:"llavero.jpg"
-},
-
-{
-id:17,
-categoria:"Globos",
-nombre:"Globo con Frase",
-descripcion:"Globo decorativo con frase para diferentes ocasiones.",
-menudeo:140,
-mayoreo:100,
-imagen:"globo-frase.jpg"
-},
-
-{
-id:18,
-categoria:"Tazas",
-nombre:"Taza para Pareja",
-descripcion:"Taza con diseño especial para parejas.",
-menudeo:220,
-mayoreo:170,
-imagen:"taza-pareja.jpg"
-},
-
-{
-id:19,
-categoria:"Decoración",
-nombre:"Número Decorativo",
-descripcion:"Número decorativo para cumpleaños y aniversarios.",
-menudeo:200,
-mayoreo:150,
-imagen:"numero-decorativo.jpg"
-},
-
-{
-id:20,
-categoria:"Regalos",
-nombre:"Canasta de Regalo",
-descripcion:"Canasta preparada para crear un detalle especial.",
-menudeo:550,
-mayoreo:430,
-imagen:"canasta.jpg"
-}
-
-];
+const WHATSAPP =
+  "523221340289";
 
 
-/* =========================================
+/* =========================================================
    VARIABLES
-========================================= */
+========================================================= */
 
-let carrito=[];
-let productoActual=null;
-let cantidadDetalle=1;
+let productos = [];
+
+let carrito = [];
+
+let productoActual = null;
 
 
-/* =========================================
+/* =========================================================
+   ESCAPAR HTML
+========================================================= */
+
+function escaparHTML(valor){
+
+  return String(valor ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+
+function obtenerCategorias(){
+
+  const categorias =
+    [
+      ...new Set(
+        productos
+          .map(p => p.categoria)
+          .filter(Boolean)
+      )
+    ];
+
+  return categorias;
+
+}
+
+
+function mostrarCategorias(){
+
+  const contenedor =
+    document.getElementById(
+      "categorias"
+    );
+
+  contenedor.innerHTML = "";
+
+
+  if(!productos.length){
+
+    return;
+
+  }
+
+
+  const botonTodos =
+    document.createElement("button");
+
+  botonTodos.className =
+    "categoria-btn activa";
+
+  botonTodos.textContent =
+    "Todos";
+
+  botonTodos.onclick =
+    () => {
+
+      document
+        .querySelectorAll(".categoria-btn")
+        .forEach(
+          b =>
+            b.classList.remove(
+              "activa"
+            )
+        );
+
+      botonTodos.classList.add(
+        "activa"
+      );
+
+      mostrarProductos(
+        productos
+      );
+
+    };
+
+
+  contenedor.appendChild(
+    botonTodos
+  );
+
+
+  obtenerCategorias()
+    .forEach(categoria => {
+
+      const boton =
+        document.createElement(
+          "button"
+        );
+
+      boton.className =
+        "categoria-btn";
+
+      boton.textContent =
+        categoria;
+
+      boton.onclick =
+        () => {
+
+          document
+            .querySelectorAll(
+              ".categoria-btn"
+            )
+            .forEach(
+              b =>
+                b.classList.remove(
+                  "activa"
+                )
+            );
+
+          boton.classList.add(
+            "activa"
+          );
+
+          mostrarProductos(
+            productos.filter(
+              p =>
+                p.categoria ===
+                categoria
+            )
+          );
+
+        };
+
+
+      contenedor.appendChild(
+        boton
+      );
+
+    });
+
+}
+
+
+/* =========================================================
    MOSTRAR PRODUCTOS
-========================================= */
+========================================================= */
 
-function mostrarProductos(lista=productos){
+function mostrarProductos(
+  lista = productos
+){
 
-const contenedor=
-document.getElementById("productos");
+  const contenedor =
+    document.getElementById(
+      "productos"
+    );
 
-contenedor.innerHTML="";
+
+  contenedor.innerHTML = "";
 
 
-lista.forEach(producto=>{
+  if(!lista.length){
 
-const div=document.createElement("div");
+    contenedor.innerHTML = `
 
-div.className="producto";
+      <div class="vacio">
 
-div.onclick=()=>abrirProducto(producto.id);
+        <h3>
+          Próximamente
+        </h3>
 
-div.innerHTML=`
+        <p>
+          Estamos preparando nuevos productos
+          para Tropic District.
+        </p>
 
-<img
-src="images/${producto.imagen}"
-alt="${producto.nombre}">
+      </div>
 
-<div class="producto-info">
+    `;
 
-<h3>
-${producto.nombre}
-</h3>
+    return;
 
-<p>
-${producto.descripcion}
-</p>
+  }
 
-<div class="precios">
 
-<span class="precio-mayoreo">
-Mayoreo: $${producto.mayoreo.toLocaleString()} MXN
-</span>
+  const accesorios =
+    lista.filter(
+      p =>
+        String(
+          p.categoria
+        ).toLowerCase()
+        === "accessories"
+    );
 
-<span class="precio-menudeo">
-Menudeo: $${producto.menudeo.toLocaleString()} MXN
-</span>
 
-</div>
+  const normales =
+    lista.filter(
+      p =>
+        String(
+          p.categoria
+        ).toLowerCase()
+        !== "accessories"
+    );
 
-</div>
 
-<div class="producto-flecha">
-›
-</div>
+  if(normales.length){
 
-`;
+    const grid =
+      document.createElement(
+        "div"
+      );
 
-contenedor.appendChild(div);
+    grid.className =
+      "productos";
 
-});
+
+    normales.forEach(
+      producto => {
+
+        grid.appendChild(
+          crearProducto(
+            producto
+          )
+        );
+
+      }
+    );
+
+
+    contenedor.appendChild(
+      grid
+    );
+
+  }
+
+
+  if(accesorios.length){
+
+    const titulo =
+      document.createElement(
+        "h2"
+      );
+
+    titulo.className =
+      "titulo-seccion";
+
+    titulo.textContent =
+      "Accessories";
+
+    contenedor.appendChild(
+      titulo
+    );
+
+
+    const listaAccesorios =
+      document.createElement(
+        "div"
+      );
+
+    listaAccesorios.className =
+      "accesorios";
+
+
+    accesorios.forEach(
+      producto => {
+
+        listaAccesorios.appendChild(
+          crearAccesorio(
+            producto
+          )
+        );
+
+      }
+    );
+
+
+    contenedor.appendChild(
+      listaAccesorios
+    );
+
+  }
 
 }
 
 
-/* =========================================
-   FILTRO
-========================================= */
+/* =========================================================
+   CREAR PRODUCTO
+========================================================= */
 
-function filtrar(categoria,boton){
+function crearProducto(
+  producto
+){
 
-document
-.querySelectorAll(".categoria-btn")
-.forEach(b=>b.classList.remove("activa"));
+  const div =
+    document.createElement(
+      "article"
+    );
 
-boton.classList.add("activa");
+  div.className =
+    "producto";
 
-if(categoria==="Todos"){
 
-mostrarProductos();
+  const imagen =
+    escaparHTML(
+      producto.imagen ||
+      ""
+    );
 
-}else{
 
-mostrarProductos(
-productos.filter(
-p=>p.categoria===categoria
-)
-);
+  const marca =
+    escaparHTML(
+      producto.marca ||
+      ""
+    );
+
+
+  const nombre =
+    escaparHTML(
+      producto.nombre ||
+      "Producto"
+    );
+
+
+  const descripcion =
+    escaparHTML(
+      producto.descripcion ||
+      ""
+    );
+
+
+  const precio =
+    Number(
+      producto.precio || 0
+    );
+
+
+  div.innerHTML = `
+
+    <img
+      class="producto-foto"
+      src="${imagen}"
+      alt="${nombre}"
+      onclick="abrirFoto('${imagen}')">
+
+
+    <div class="producto-info">
+
+      ${
+        marca
+        ?
+        `<div class="producto-marca">
+          ${marca}
+        </div>`
+        :
+        ""
+      }
+
+
+      <h3>
+        ${nombre}
+      </h3>
+
+
+      <p>
+        ${descripcion}
+      </p>
+
+
+      <div class="producto-precio">
+
+        $${precio.toLocaleString()}
+        MXN
+
+      </div>
+
+
+      <button
+        class="btn-ordenar"
+        onclick="event.stopPropagation(); abrirProducto(${producto.id})">
+
+        ORDENAR
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  div.onclick =
+    e => {
+
+      if(
+        e.target.tagName
+        !== "BUTTON" &&
+        !e.target.classList.contains(
+          "producto-foto"
+        )
+      ){
+
+        abrirProducto(
+          producto.id
+        );
+
+      }
+
+    };
+
+
+  return div;
 
 }
 
+
+/* =========================================================
+   CREAR ACCESORIO
+========================================================= */
+
+function crearAccesorio(
+  producto
+){
+
+  const div =
+    document.createElement(
+      "article"
+    );
+
+  div.className =
+    "accesorio";
+
+
+  const imagen =
+    escaparHTML(
+      producto.imagen ||
+      ""
+    );
+
+
+  const nombre =
+    escaparHTML(
+      producto.nombre ||
+      "Accesorio"
+    );
+
+
+  const tipo =
+    escaparHTML(
+      producto.tipo ||
+      "Accessory"
+    );
+
+
+  const material =
+    escaparHTML(
+      producto.material ||
+      ""
+    );
+
+
+  const precio =
+    Number(
+      producto.precio || 0
+    );
+
+
+  div.innerHTML = `
+
+    <img
+      class="accesorio-foto"
+      src="${imagen}"
+      alt="${nombre}"
+      onclick="abrirFoto('${imagen}')">
+
+
+    <div class="accesorio-info">
+
+      <div class="accesorio-tipo">
+        ${tipo}
+      </div>
+
+
+      <h3>
+        ${nombre}
+      </h3>
+
+
+      <p>
+        ${material}
+      </p>
+
+    </div>
+
+
+    <div class="accesorio-precio">
+
+      $${precio.toLocaleString()}
+      MXN
+
+    </div>
+
+
+    <button
+      class="accesorio-ordenar"
+      onclick="event.stopPropagation(); abrirProducto(${producto.id})">
+
+      ORDENAR
+
+    </button>
+
+  `;
+
+
+  div.onclick =
+    e => {
+
+      if(
+        e.target.tagName
+        !== "BUTTON" &&
+        !e.target.classList.contains(
+          "accesorio-foto"
+        )
+      ){
+
+        abrirProducto(
+          producto.id
+        );
+
+      }
+
+    };
+
+
+  return div;
+
 }
 
 
-/* =========================================
-   MODAL PRODUCTO
-========================================= */
+/* =========================================================
+   ABRIR PRODUCTO
+========================================================= */
 
-function abrirProducto(id){
+function abrirProducto(
+  id
+){
 
-productoActual=
-productos.find(p=>p.id===id);
+  productoActual =
+    productos.find(
+      p =>
+        Number(p.id) ===
+        Number(id)
+    );
 
-cantidadDetalle=1;
 
-document.getElementById(
-"detalleImagen"
-).src=
-"images/"+productoActual.imagen;
+  if(!productoActual){
 
-document.getElementById(
-"detalleNombre"
-).textContent=
-productoActual.nombre;
+    return;
 
-document.getElementById(
-"detalleDescripcion"
-).textContent=
-productoActual.descripcion;
+  }
 
-document.getElementById(
-"detalleMenudeo"
-).textContent=
-"$"+productoActual.menudeo.toLocaleString()+" MXN";
 
-document.getElementById(
-"detalleMayoreo"
-).textContent=
-"$"+productoActual.mayoreo.toLocaleString()+" MXN";
+  document.getElementById(
+    "detalleImagen"
+  ).src =
+    productoActual.imagen ||
+    "";
 
-document.getElementById(
-"cantidadDetalle"
-).textContent=
-cantidadDetalle;
 
-document.getElementById(
-"modalProducto"
-).style.display="block";
+  document.getElementById(
+    "detalleMarca"
+  ).textContent =
+    productoActual.marca ||
+    "";
+
+
+  document.getElementById(
+    "detalleNombre"
+  ).textContent =
+    productoActual.nombre ||
+    "Producto";
+
+
+  document.getElementById(
+    "detalleDescripcion"
+  ).textContent =
+    productoActual.descripcion ||
+    "";
+
+
+  document.getElementById(
+    "detallePrecio"
+  ).textContent =
+    "$" +
+    Number(
+      productoActual.precio || 0
+    ).toLocaleString() +
+    " MXN";
+
+
+  document.getElementById(
+    "modalProducto"
+  ).style.display =
+    "block";
 
 }
 
+
+/* =========================================================
+   ABRIR FOTO
+========================================================= */
+
+function abrirFoto(
+  imagen
+){
+
+  if(!imagen){
+
+    return;
+
+  }
+
+
+  const modal =
+    document.getElementById(
+      "modalProducto"
+    );
+
+
+  const img =
+    document.getElementById(
+      "detalleImagen"
+    );
+
+
+  img.src =
+    imagen;
+
+
+  document.getElementById(
+    "detalleMarca"
+  ).textContent =
+    "";
+
+
+  document.getElementById(
+    "detalleNombre"
+  ).textContent =
+    "";
+
+
+  document.getElementById(
+    "detalleDescripcion"
+  ).textContent =
+    "";
+
+
+  document.getElementById(
+    "detallePrecio"
+  ).textContent =
+    "";
+
+
+  modal.style.display =
+    "block";
+
+}
+
+
+/* =========================================================
+   CERRAR PRODUCTO
+========================================================= */
 
 function cerrarProducto(){
 
-document.getElementById(
-"modalProducto"
-).style.display="none";
+  document.getElementById(
+    "modalProducto"
+  ).style.display =
+    "none";
 
 }
 
 
-function cambiarCantidad(valor){
-
-cantidadDetalle+=valor;
-
-if(cantidadDetalle<1){
-
-cantidadDetalle=1;
-
-}
-
-document.getElementById(
-"cantidadDetalle"
-).textContent=
-cantidadDetalle;
-
-}
-
-
-/* =========================================
+/* =========================================================
    AGREGAR AL CARRITO
-========================================= */
+========================================================= */
 
 function agregarDesdeDetalle(){
 
-if(!productoActual)return;
+  if(!productoActual){
 
-const existente=
-carrito.find(
-item=>item.id===productoActual.id
-);
+    return;
 
-if(existente){
+  }
 
-existente.cantidad+=cantidadDetalle;
 
-}else{
+  const existente =
+    carrito.find(
+      item =>
+        Number(item.id) ===
+        Number(productoActual.id)
+    );
 
-carrito.push({
 
-...productoActual,
+  if(existente){
 
-cantidad:cantidadDetalle
+    existente.cantidad += 1;
 
-});
+  }else{
+
+    carrito.push({
+
+      ...productoActual,
+
+      cantidad:1
+
+    });
+
+  }
+
+
+  cerrarProducto();
+
+  actualizarCarrito();
+
+  abrirCarrito();
 
 }
 
-cerrarProducto();
 
-actualizarCarrito();
-
-abrirCarrito();
-
-}
-
-
-/* =========================================
+/* =========================================================
    ACTUALIZAR CARRITO
-========================================= */
+========================================================= */
 
 function actualizarCarrito(){
 
-const contenedor=
-document.getElementById("carritoItems");
-
-const contador=
-document.getElementById("contador");
-
-let totalCantidad=0;
-let total=0;
+  const contenedor =
+    document.getElementById(
+      "carritoItems"
+    );
 
 
-if(carrito.length===0){
-
-contenedor.innerHTML=`
-
-<p style="
-text-align:center;
-color:#777;
-padding:30px">
-
-Tu carrito está vacío.
-
-</p>
-
-`;
-
-}else{
-
-contenedor.innerHTML="";
+  const contador =
+    document.getElementById(
+      "contador"
+    );
 
 
-carrito.forEach(item=>{
+  let totalCantidad = 0;
 
-totalCantidad+=item.cantidad;
-
-const subtotal=
-item.menudeo*item.cantidad;
-
-total+=subtotal;
+  let total = 0;
 
 
-const div=
-document.createElement("div");
+  if(!carrito.length){
 
-div.className="carrito-item";
+    contenedor.innerHTML = `
 
-div.innerHTML=`
+      <p style="
+        text-align:center;
+        color:#777;
+        padding:30px">
 
-<h4>
-${item.nombre}
-</h4>
+        Tu carrito está vacío.
 
-<small>
-$${item.menudeo.toLocaleString()} MXN
-por unidad
-</small>
+      </p>
 
-<div class="item-controles">
+    `;
 
-<button
-onclick="cambiarCarrito(${item.id},-1)">
-−
-</button>
+  }else{
 
-<span>
-${item.cantidad}
-</span>
+    contenedor.innerHTML = "";
 
-<button
-onclick="cambiarCarrito(${item.id},1)">
-+
-</button>
 
-<button
-class="eliminar"
-onclick="eliminarProducto(${item.id})">
-×
-</button>
+    carrito.forEach(
+      item => {
 
-</div>
+        const cantidad =
+          Number(
+            item.cantidad
+          );
 
-<p style="
-margin-top:7px;
-font-weight:bold;">
 
-Subtotal:
-$${subtotal.toLocaleString()} MXN
+        const precio =
+          Number(
+            item.precio || 0
+          );
 
-</p>
 
-`;
+        const subtotal =
+          precio *
+          cantidad;
 
-contenedor.appendChild(div);
 
-});
+        totalCantidad +=
+          cantidad;
+
+
+        total +=
+          subtotal;
+
+
+        const div =
+          document.createElement(
+            "div"
+          );
+
+
+        div.className =
+          "carrito-item";
+
+
+        div.innerHTML = `
+
+          <h4>
+            ${escaparHTML(
+              item.nombre
+            )}
+          </h4>
+
+
+          <small>
+            $${precio.toLocaleString()}
+            MXN por unidad
+          </small>
+
+
+          <div class="item-controles">
+
+            <button
+              onclick="cambiarCarrito(${item.id},-1)">
+              −
+            </button>
+
+
+            <span>
+              ${cantidad}
+            </span>
+
+
+            <button
+              onclick="cambiarCarrito(${item.id},1)">
+              +
+            </button>
+
+
+            <button
+              class="eliminar"
+              onclick="eliminarProducto(${item.id})">
+              ×
+            </button>
+
+          </div>
+
+
+          <p style="
+            margin-top:7px;
+            font-weight:bold;">
+
+            Subtotal:
+            $${subtotal.toLocaleString()}
+            MXN
+
+          </p>
+
+        `;
+
+
+        contenedor.appendChild(
+          div
+        );
+
+      }
+    );
+
+  }
+
+
+  contador.textContent =
+    totalCantidad;
+
+
+  document.getElementById(
+    "total"
+  ).textContent =
+    "$" +
+    total.toLocaleString() +
+    " MXN";
 
 }
 
 
-contador.textContent=
-totalCantidad;
-
-document.getElementById(
-"total"
-).textContent=
-"$"+total.toLocaleString()+" MXN";
-
-}
-
-
-/* =========================================
+/* =========================================================
    CARRITO
-========================================= */
+========================================================= */
 
 function abrirCarrito(){
 
-document
-.getElementById("carrito")
-.classList.add("abierto");
+  document
+    .getElementById(
+      "carrito"
+    )
+    .classList.add(
+      "abierto"
+    );
 
 }
 
 
 function cerrarCarrito(){
 
-document
-.getElementById("carrito")
-.classList.remove("abierto");
+  document
+    .getElementById(
+      "carrito"
+    )
+    .classList.remove(
+      "abierto"
+    );
 
 }
 
 
-function cambiarCarrito(id,cambio){
+function cambiarCarrito(
+  id,
+  cambio
+){
 
-const item=
-carrito.find(
-p=>p.id===id
-);
+  const item =
+    carrito.find(
+      p =>
+        Number(p.id) ===
+        Number(id)
+    );
 
-if(!item)return;
 
-item.cantidad+=cambio;
+  if(!item){
 
-if(item.cantidad<=0){
+    return;
 
-carrito=
-carrito.filter(
-p=>p.id!==id
-);
+  }
+
+
+  item.cantidad +=
+    cambio;
+
+
+  if(
+    item.cantidad <= 0
+  ){
+
+    carrito =
+      carrito.filter(
+        p =>
+          Number(p.id) !==
+          Number(id)
+      );
+
+  }
+
+
+  actualizarCarrito();
 
 }
 
-actualizarCarrito();
+
+function eliminarProducto(
+  id
+){
+
+  carrito =
+    carrito.filter(
+      p =>
+        Number(p.id) !==
+        Number(id)
+    );
+
+
+  actualizarCarrito();
 
 }
 
 
-function eliminarProducto(id){
-
-carrito=
-carrito.filter(
-p=>p.id!==id
-);
-
-actualizarCarrito();
-
-}
-
-
-/* =========================================
+/* =========================================================
    CHECKOUT
-========================================= */
+========================================================= */
 
 function abrirCheckout(){
 
-if(carrito.length===0){
+  if(!carrito.length){
 
-alert(
-"Agrega al menos un producto al carrito."
-);
+    alert(
+      "Agrega al menos un producto al carrito."
+    );
 
-return;
+    return;
+
+  }
+
+
+  const resumen =
+    document.getElementById(
+      "resumen"
+    );
+
+
+  let html = "";
+
+  let total = 0;
+
+
+  carrito.forEach(
+    item => {
+
+      const subtotal =
+        Number(
+          item.precio || 0
+        ) *
+        Number(
+          item.cantidad
+        );
+
+
+      total +=
+        subtotal;
+
+
+      html += `
+
+        <div class="resumen-linea">
+
+          <span>
+            ${escaparHTML(
+              item.nombre
+            )}
+            ×
+            ${item.cantidad}
+          </span>
+
+          <strong>
+            $${subtotal.toLocaleString()}
+          </strong>
+
+        </div>
+
+      `;
+
+    }
+  );
+
+
+  html += `
+
+    <div style="
+      display:flex;
+      justify-content:space-between;
+      padding-top:15px;
+      font-size:20px;
+      font-weight:bold;">
+
+      <span>
+        Total
+      </span>
+
+      <span>
+        $${total.toLocaleString()}
+        MXN
+      </span>
+
+    </div>
+
+  `;
+
+
+  resumen.innerHTML =
+    html;
+
+
+  document.getElementById(
+    "checkout"
+  ).style.display =
+    "block";
+
+
+  cerrarCarrito();
 
 }
 
 
-const resumen=
-document.getElementById("resumen");
-
-let html="";
-let total=0;
-
-
-carrito.forEach(item=>{
-
-const subtotal=
-item.menudeo*item.cantidad;
-
-total+=subtotal;
-
-
-html+=`
-
-<div class="resumen-linea">
-
-<span>
-${item.nombre}
-× ${item.cantidad}
-</span>
-
-<strong>
-$${subtotal.toLocaleString()}
-</strong>
-
-</div>
-
-`;
-
-});
-
-
-html+=`
-
-<div style="
-display:flex;
-justify-content:space-between;
-padding-top:15px;
-font-size:20px;
-font-weight:bold;">
-
-<span>
-Total
-</span>
-
-<span>
-$${total.toLocaleString()} MXN
-</span>
-
-</div>
-
-`;
-
-
-resumen.innerHTML=html;
-
-
-document.getElementById(
-"checkout"
-).style.display="block";
-
-
-cerrarCarrito();
-
-}
-
-
-/* =========================================
+/* =========================================================
    CERRAR CHECKOUT
-========================================= */
+========================================================= */
 
 function cerrarCheckout(){
 
-document.getElementById(
-"checkout"
-).style.display="none";
+  document.getElementById(
+    "checkout"
+  ).style.display =
+    "none";
 
 }
 
 
-/* =========================================
+/* =========================================================
    ENVIAR PEDIDO
-========================================= */
+========================================================= */
 
-function enviarPedido(e){
+function enviarPedido(
+  e
+){
 
-e.preventDefault();
-
-
-const nombre=
-document.getElementById(
-"cliente"
-).value;
-
-const telefono=
-document.getElementById(
-"telefono"
-).value;
-
-const observaciones=
-document.getElementById(
-"observaciones"
-).value;
+  e.preventDefault();
 
 
-let mensaje=
-"Hola, quiero realizar el siguiente pedido:%0A%0A";
-
-let total=0;
-
-
-carrito.forEach(item=>{
-
-const subtotal=
-item.menudeo*item.cantidad;
-
-total+=subtotal;
+  const nombre =
+    document.getElementById(
+      "cliente"
+    ).value;
 
 
-mensaje+=
-"• "+
-item.nombre+
-" | Cantidad: "+
-item.cantidad+
-" | Precio: $"+
-item.menudeo+
-" | Subtotal: $"+
-subtotal+
-"%0A";
-
-});
+  const telefono =
+    document.getElementById(
+      "telefono"
+    ).value;
 
 
-mensaje+=
-"%0ATotal aproximado: $"+
-total+
-" MXN";
+  const observaciones =
+    document.getElementById(
+      "observaciones"
+    ).value;
 
 
-mensaje+=
-"%0A%0ANombre: "+
-encodeURIComponent(nombre);
+  let mensaje =
+    "Hola, quiero realizar el siguiente pedido:\n\n";
 
 
-mensaje+=
-"%0ATeléfono: "+
-encodeURIComponent(telefono);
+  let total = 0;
 
 
-if(observaciones){
+  carrito.forEach(
+    item => {
 
-mensaje+=
-"%0AObservaciones: "+
-encodeURIComponent(observaciones);
+      const precio =
+        Number(
+          item.precio || 0
+        );
+
+
+      const subtotal =
+        precio *
+        Number(
+          item.cantidad
+        );
+
+
+      total +=
+        subtotal;
+
+
+      mensaje +=
+        "• " +
+        item.nombre +
+        " | Cantidad: " +
+        item.cantidad +
+        " | Precio: $" +
+        precio +
+        " | Subtotal: $" +
+        subtotal +
+        "\n";
+
+    }
+  );
+
+
+  mensaje +=
+    "\nTotal aproximado: $" +
+    total +
+    " MXN";
+
+
+  mensaje +=
+    "\n\nNombre: " +
+    nombre;
+
+
+  mensaje +=
+    "\nTeléfono: " +
+    telefono;
+
+
+  if(observaciones){
+
+    mensaje +=
+      "\nObservaciones: " +
+      observaciones;
+
+  }
+
+
+  window.open(
+
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    encodeURIComponent(
+      mensaje
+    ),
+
+    "_blank"
+
+  );
 
 }
 
 
-/*
-=========================================
-CAMBIA ESTE NÚMERO POR EL WHATSAPP
-DEL CLIENTE
-=========================================
-*/
+/* =========================================================
+   CERRAR MODALES AL HACER CLIC AFUERA
+========================================================= */
 
-const telefonoNegocio=
-"523221340289";
+window.addEventListener(
+  "click",
+  e => {
+
+    const modal =
+      document.getElementById(
+        "modalProducto"
+      );
 
 
-window.open(
+    if(e.target === modal){
 
-"https://wa.me/"+
-telefonoNegocio+
-"?text="+mensaje,
+      cerrarProducto();
 
-"_blank"
+    }
 
+
+    const checkout =
+      document.getElementById(
+        "checkout"
+      );
+
+
+    if(e.target === checkout){
+
+      cerrarCheckout();
+
+    }
+
+  }
 );
 
-}
 
+/* =========================================================
+   INICIO
+========================================================= */
 
-/* =========================================
-   MÚSICA
-========================================= */
-
-const musica=
-document.getElementById("musica");
-
-const botonMusica=
-document.getElementById("botonMusica");
-
-
-function controlarMusica(){
-
-if(musica.paused){
-
-musica.play();
-
-botonMusica.innerHTML=
-"❚❚ Pausar música";
-
-botonMusica.classList.add(
-"activo"
-);
-
-}else{
-
-musica.pause();
-
-botonMusica.innerHTML=
-"♫ Música";
-
-botonMusica.classList.remove(
-"activo"
-);
-
-}
-
-}
-
-
-/* =========================================
-   INICIAR
-========================================= */
+mostrarCategorias();
 
 mostrarProductos();
+
+actualizarCarrito();
+
+
+/* =========================================================
+   SERVICE WORKER
+========================================================= */
+
+if(
+  "serviceWorker" in navigator
+){
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      navigator.serviceWorker
+        .register(
+          "./sw.js"
+        )
+        .then(
+          r =>
+            console.log(
+              "Service Worker registrado:",
+              r.scope
+            )
+        )
+        .catch(
+          e =>
+            console.error(
+              "Error Service Worker:",
+              e
+            )
+        );
+
+    }
+  );
+
+}
 
 </script>
 
 </body>
 </html>
-```
